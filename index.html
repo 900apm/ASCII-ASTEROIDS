@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>ASCII ASTEROIDS</title>
+  <link href="styles/main.css" rel="stylesheet" />
+</head>
+
+<body>
+  
+  <div id="container">
+    
+    <div id="starry-sky">
+    <!-- pre element is not indented in order to remove uncessecary white space -->
+    <pre id="sky">
+      .  *       +             *   .                      .      +                      +   .       `
+                         *                ,       +                   ,          '    .         *      +      .
+ *   .        *       .      -)-       *                 ,   *              *             ,          *       .       *
+</pre>
+
+    <!-- pre element is not indented in order to remove uncessecary white space -->
+    <pre id="sky2">
+      .  *       .             *        .         .                *           +           ,       .     +
+        .                 *         +         ,  -+-  .     *     .         .        ,               '
+ *   .        *       .       .       *           !                  *       .        .          *           *
+</pre>
+    </div>
+
+    <div id="starry-sky2">
+      <!-- pre element is not indented in order to remove uncessecary white space -->
+      <pre id="sky3">
+          .  *       +             *   .                      .      +        =O=           +   .       `
+                             *                ,       +                   ,          '    .         *      +      .
+     *   .        *       .       .                      ,   *              *             ,          *       .       *
+</pre>
+    
+      <!-- pre element is not indented in order to remove uncessecary white space -->
+      <pre id="sky4">
+          .  *       .             *        .  *=-                     *           +           ,       .     +
+                             *         +                 .     *     .         .        ,               '
+     *   .        *       .       .       *           +                     *       .        .          *           *
+</pre>
+    </div>
+
+    <!-- pre element is not indented in order to remove uncessecary white space -->
+    <pre id="earth"><script>
+        o               .        ___---___          .             :   .
+              .              .--\        --.     +     *      `   !  '  
+                            ./.;_.\     __/~ \.                 `,|.'
++       -*-               /;  / `-'  __\    . \          - -- ---(o,--- -- - 
+         |   .           / ,--'     / .   .;   \                , |'`
+                        | .|       /       __   |             , . !  \
+   o          -)-      |__/    __ |  . ;   \ | . |     +          :
+                       |      /  \\_    . ;| \___|                .     : "
+  .        +    o      |      \  .~\\___,--'     |           .    .   --+--
+                        |     | . ; ~~~~\_    __|                       !
+           |             \    \   .  .  ; \  /_/   +               *
+        - -O-        *    \   /         . |  ~/                  .
+    .      |   .          ~\  \   .      /   /~          -o-
+                             ~--___ ; ___--~
+          .              +         ---         .  
+           
+           
+
+                    USE THE UP AND DOWN KEYS TO MOVE
+                      
+                    AVOID THE BORDERS AND ASTEROIDS
+</script></pre>
+
+    <!-- <pre id="aurora">
+  ` : | | | |:  ||  :     `  :  |  |+|: | : : :|   .        `              
+      ` : | :|  ||  |:  :    `  |  | :| : | : |:   |  .                    
+         .' ':  ||  |:  |  '       ` || | : | |: : |   .  `           .    .
+                `'  ||  |  ' |   *    ` : | | :| |*|  :   :               :|
+        *    *       `  |  : :  |  .      ` ' :| | :| . : :         *   :.||
+             .`            | |  |  : .:|       ` | || | : |: |          | ||
+      '          .         + `  |  :  .: .         '| | : :| :    .   |:| ||
+         .                 .    ` *|  || :       `    | | :| | :      |:| |
+ .                .          .        || |.: *          | || : :     :|||
+        .            .   . *    .   .  ` |||.  +        + '| |||  .  ||`
+     .             *              .     +:`|!             . ||||  :.||`
+ +                      .                ..!|*          . | :`||+ |||`
+     .                         +      : |||`        .| :| | | |.| ||`     .
+       *     +   '               +  :|| |`     :.+. || || | |:`|| `
+                            .      .||` .    ..|| | |: '` `| | |`  +
+  .       +++                      ||        !|!: `       :| |
+              +         .      .    | .      `|||.:      .||    .      .    `
+          '                           `|.   .  `:|||   + ||'     `
+     +      *                         `'       `'|.    `:
+
+                      USE THE UP AND DOWN KEYS TO MOVE.
+                          
+                       AVOID THE BORDERS AND ASTEROIDS
+
+    </pre> -->
+
+    <!-- tile does not need to be pre element as it is 1 line-->
+    <div id="ground">
+
+      <div id="tile">_______/\_________ ____/\_/\________________/\___________________/\\_____________________/\_____________________/\________________
+      </div>
+
+      <div id="tile2">___________ _____/\___________________/\______________________________//\______________________/\___________/\____________________
+      </div>
+
+    </div>
+
+    <div id="ground2">
+    
+      <div id="tile3">_______/\_________
+        ____/\_/\________________/\___________________/\\_____________________/\_____________________/\________________
+      </div>
+    
+      <div id="tile4">___________
+        _____/\___________________/\______________________________//\______________________/\___________/\____________________
+      </div>
+    
+    </div>
+
+    <!-- pre element is not indented in order to remove uncessecary white space in pre element,
+    this is also done to minimize the hitbox collision-->
+    <pre id="player"><script>   .---.
+ _/_oOo_\_ 
+(_________)
+  /^^^^^\
+</script></pre>
+
+    <!-- pre element is not indented in order to remove uncessecary white space in pre element,
+    this is also done to minimize the hitbox collision-->
+    <pre id="obstacle" >
+  / _...=====
+ /.'    `::===
+|:        :::=
+|:         ::=
+ \.      .::==
+  \`-..:''===
+</pre>
+
+  <!-- setting initial speed and score TYPEWRITER TEXT -->
+  <!-- <pre id="score_div"><script>
+<p>ASCII ASTEROIDS</p>
+<p>SPEED:<span id="speed">100</span></p>
+<p>SCORE:<span id="score">0</span></p>
+</script></pre> -->
+
+  <div id="score_div">
+    <p>ASCII ASTEROIDS</p>
+    <p>SPEED:<span id="speed">100</span></p>
+    <p>SCORE:<span id="score">0</span></p>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="script.js"></script>
+
+</body>
+
+</html>
