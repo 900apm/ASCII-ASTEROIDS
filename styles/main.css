@@ -273,8 +273,7 @@ a {
 
 #player {
   position: absolute;
-  background-size: contain;
-  background-repeat: no-repeat;
+  height: 55px;
   top: 40%;
   left: 5%;
   -webkit-transition: text-shadow 0.2s;

@@ -139,8 +139,8 @@ a{
 // controllable player, takes keyboard input up and down
 #player {
     position: absolute;
-    background-size: contain;
-    background-repeat: no-repeat;
+    // fixed height for better hitbox collision
+    height: 55px;
     top: 40%;
     left: 5%;
     transition: text-shadow 0.2s;

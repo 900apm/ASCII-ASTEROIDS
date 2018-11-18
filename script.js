@@ -3,7 +3,7 @@ $(function () {
     // boolean
     let score_updated = false;
 
-    // changes to dom
+    // variables for css
     let container = $('#container');
     let player = $('#player');
     let obstacle = $('#obstacle');
@@ -11,18 +11,22 @@ $(function () {
     let speed_span = $('#speed');
 
     // float/numbers
-    let speed = 100;
+    let obstacle_initial_position = parseInt(obstacle.css('right'));
+    let obstacle_initial_height = parseInt(obstacle.css('height'));
     let player_left = parseInt(player.css('left'));
     let player_height = parseInt(player.height());
     let container_width = parseInt(container.width());
     let container_height = parseInt(container.height());
-    let obstacle_initial_position = parseInt(obstacle.css('right'));
-    let obstacle_initial_height = parseInt(obstacle.css('height'));
+    let speed = 100;
     
     // continously runs the game until clearInterval() is called
     setInterval(function() {
 
-        // if the UFO touches an obstacle or the top or the bottom, stop game
+        /* 
+        if the UFO touches an obstacle OR
+        if the distance from the top drops below zero, meaning that UFO has hit the ceiling OR
+        if the distance from the top is larger than the container height without including the player height, meaning the UFO is below the container
+        */
         if (collision(player, obstacle) || parseInt(player.css('top')) <= 0 || parseInt(player.css('top')) > container_height - player_height) {
 
             end();
@@ -32,9 +36,10 @@ $(function () {
             let obstacle_current_position = parseInt(obstacle.css('right'));
 
             //update the score when the obstacles have passed the player successfully
-            if (obstacle_current_position > container_width - player_left) {
+            if (obstacle_current_position > container_width) {
                 if (score_updated === false) {
-                    score.text(parseInt(score.text()) + 1);
+                    // the score is the speed of each obstacle added together
+                    score.text(parseInt(score.text()) + speed);
                     score_updated = true;
                 }
             }
@@ -42,14 +47,11 @@ $(function () {
             //check whether the obstacle went out of the container
             if (obstacle_current_position > container_width) {
 
-                //change the obstacle's vertical position
+                //change the obstacle's vertical position randomly withinthe height of the container
                 obstacle.css('bottom', Math.floor(Math.random() * 500) - 100);
 
                 //increase speed randomly between integers 10 to 30
                 speed = speed + Math.floor(Math.random() * 30 + 10);
-
-                // increases the height of the obstacles
-                obstacle_initial_height = obstacle_initial_height + Math.floor(Math.random() * 10);
 
                 // updates the speed to the score span, resets score_updated to false so it can be updated again
                 speed_span.text(speed);
@@ -64,7 +66,7 @@ $(function () {
         }
     });
 
-    // toggles the hitbox
+    // toggles the hitboxes
     $("#start").click(function () {
         $("#player, #obstacle").toggleClass("hitbox")
     });
@@ -100,8 +102,8 @@ $(function () {
 
     // end game
     function end() {
-        clearInterval();
         alert("THE UNIVERSE CAN BE A PERILOUS PLACE\n \n \t \t CLICK OK TO TRY AGAIN");
+        clearInterval();
         location.reload();
     }
 
