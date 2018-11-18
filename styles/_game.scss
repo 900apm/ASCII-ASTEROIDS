@@ -17,10 +17,14 @@ pre{
   font-family: monospace;
 }
 
-p{
-  margin: 0;
-  padding: 0;
+a{
+  color: $primary;
+  text-decoration: none;
+  &:hover{
+    cursor: crosshair;
+  }
 }
+
 
 // game container
 #container {
@@ -147,11 +151,6 @@ p{
     top: 40%;
     left: 5%;
     transition: text-shadow 0.2s;
-    // sets height and moves the hitbox to height position
-    // height: 50px;
-    // transform: translateY(-50px);
-    // border used to measure hitboxes
-    // border: 1px solid red;
     margin: 0;
     padding: 0;
 }
@@ -160,15 +159,12 @@ p{
 #obstacle {
     bottom: 40px;
     position: absolute;
-    // cool effect if you don't specific height 
+    // cool explosion effect if you don't specific height 
     width: 130px;
     height: 85px;
     margin: 0;
     color: $primary;
-    // background-color: $primary;
     z-index: 10;
-    // border used to measure hitboxes
-    // border: 1px solid red;
     // initial spawn position of the obstacle is off-screen on the right side
     right: -250%;
     text-shadow: 
@@ -176,6 +172,12 @@ p{
     20px -0px 0px rgba( $primary, 0.4 ),
     30px -0px 0px rgba( $primary, 0.2 );
 }
+
+// hitbox
+.hitbox{
+  border: 0.5px solid red;
+}
+
 // shadow effect when player moves up
 .shadow-down{
   text-shadow:
@@ -206,11 +208,10 @@ p{
 }
 
 .cursor:after {
-    content:"|";
+    content:">_";
     opacity: 0;
     animation: cursor 0.5s infinite;
 }
-
 @keyframes cursor {
     from {opacity: 1;}
     to {opacity: 0;}

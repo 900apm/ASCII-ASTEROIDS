@@ -18,8 +18,8 @@ $(function () {
     let container_height = parseInt(container.height());
     let obstacle_initial_position = parseInt(obstacle.css('right'));
     let obstacle_initial_height = parseInt(obstacle.css('height'));
-
-    // runs the game, continously runs the function until clearInterval() is called, no time is set so default is 10ms
+    
+    // continously runs the game until clearInterval() is called
     setInterval(function() {
 
         // if the UFO touches an obstacle or the top or the bottom, stop game
@@ -41,18 +41,12 @@ $(function () {
 
             //check whether the obstacle went out of the container
             if (obstacle_current_position > container_width) {
-                
-                //change obstacle's position randomly between a negative and positive number
-                let new_height = Math.floor(Math.random() * 2) == 1 ? 1 : -1;
-                
-                //change the obstacle's height
-                // obstacle.css('height', Math.floor(Math.random() * 100) + 50);
 
                 //change the obstacle's vertical position
                 obstacle.css('bottom', Math.floor(Math.random() * 500) - 100);
 
-                //increase speed randomly between integers 1 to 30
-                speed = speed + Math.floor(Math.random() * 30);
+                //increase speed randomly between integers 10 to 30
+                speed = speed + Math.floor(Math.random() * 30 + 10);
 
                 // increases the height of the obstacles
                 obstacle_initial_height = obstacle_initial_height + Math.floor(Math.random() * 10);
@@ -68,6 +62,11 @@ $(function () {
         //increase the obstacle's speed
         obstacle.css('right', obstacle_current_position + speed/100);
         }
+    });
+
+    // toggles the hitbox
+    $("#start").click(function () {
+        $("#player, #obstacle").toggleClass("hitbox")
     });
 
     // parallax marquee text
@@ -94,6 +93,7 @@ $(function () {
             $("#player").finish().animate({
                 top: "+=30px",
             });
+            // adds UFO shadow on key down
             $("#player").addClass("shadow-up");}
     });
 
@@ -107,7 +107,6 @@ $(function () {
 
     // end game
     function end() {
-        game_over = true;
         clearInterval();
         alert("THE UNIVERSE CAN BE A PERILOUS PLACE\n \n \t \t CLICK OK TO TRY AGAIN");
         location.reload();
@@ -149,9 +148,10 @@ $(function () {
                 $('#' + pre).append(text.charAt(y));
             }, Int, i);
         };
+        // removes cursor after timeout
         setTimeout(function () {
             $('#' + pre).removeClass('cursor');
-        }, Int + 2500);
+        }, Int + 1000);
     }
 
     function playerWrite(pre) {
@@ -167,14 +167,15 @@ $(function () {
                 $('#' + pre).append(text.charAt(y));
             }, Int, i);
         };
+        // removes cursor after timeout
         setTimeout(function () {
             $('#' + pre).removeClass('cursor');
-        }, Int + 2500);
+        }, Int + 1000);
     }
 
 
     backgroundWrite('earth');
     // runs playerWrite after 10 seconds
-    setTimeout(function () { playerWrite('player'); }, 10000);
+    setTimeout(function () { playerWrite('player'); }, 9000);
     
     });
