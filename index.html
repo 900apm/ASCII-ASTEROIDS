@@ -43,7 +43,35 @@
 </pre>
     </div>
 
-    <!-- pre element is not indented in order to remove uncessecary white space -->
+    <div id="ground">
+    
+      <div id="tile">
+        _____,-/\_________ ____,-//\________
+        ________/\_____________/|\____/\\___________________,-/\_____________________/\______________
+      </div>
+    
+      <div id="tile2">
+        _________________ _____/\___________________/\___/|\____________
+        ___________,-//\______________________/\______________/\_________
+      </div>
+    
+    </div>
+    
+    <div id="ground2">
+    
+      <div id="tile3">
+        _______/\_____________,-/\________________/\_________
+        __________/\_______________________,/\___________________/\_______ _________
+      </div>
+    
+      <div id="tile4">
+        __________ ___,-/\__________________/|\_______
+        ________________________/\______________________/\___________/\____________________
+      </div>
+    
+    </div>
+
+    <!-- pre element is not indented correctly in order to remove uncessecary white space -->
     <pre id="earth"><script>
         o               .        ___---___          .             :   .
               .              .--\        --.     +     *      `   !  '  
@@ -68,32 +96,7 @@
                      AVOID THE BORDERS AND ASTEROIDS
 </script></pre>
 
-    <!-- ground does not need to be pre element as it is 1 line-->
-    <div id="ground">
-
-      <div id="tile">
-      _____,-/\_________ ____,-//\________ ________/\_____________/|\____/\\___________________,-/\_____________________/\______________
-      </div>
-
-      <div id="tile2">
-      _________________ _____/\___________________/\___/|\____________ ___________,-//\______________________/\______________/\_________
-      </div>
-
-    </div>
-
-    <div id="ground2">
-    
-      <div id="tile3">
-      _______/\_____________,-/\________________/\_________ __________/\_______________________,/\___________________/\_______ _________
-      </div>
-    
-      <div id="tile4">
-      __________ ___,-/\__________________/|\_______ ________________________/\______________________/\___________/\____________________
-      </div>
-    
-    </div>
-
-    <!-- pre element is not indented in order to remove uncessecary white space in pre element,
+    <!-- pre element is not indented correctly in order to remove uncessecary white space in pre element,
     this is also done to minimize the hitbox collision-->
     <pre id="player"><script>   .---.
  _/_oOo_\_ 
@@ -101,7 +104,7 @@
   /^^^^^\
 </script></pre>
 
-    <!-- pre element is not indented in order to remove uncessecary white space in pre element,
+    <!-- pre element is not indented correctly in order to remove uncessecary white space in pre element,
     this is also done to minimize the hitbox collision-->
     <pre id="obstacle">
   / _...=====
@@ -112,6 +115,7 @@
   \`-..:''===
 </pre>
 
+  <!-- displays the score along with title and options-->
   <div id="score_div">
     <p>ASCII ASTEROIDS</p>
     <a href="#" id="start">SHOW HITBOX</a>
@@ -119,7 +123,9 @@
     <p>SCORE:<span id="score">0</span></p>
   </div>
 
+  <!-- jQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!-- game script -->
   <script src="script.js"></script>
 
   </div>

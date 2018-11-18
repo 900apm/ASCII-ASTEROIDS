@@ -27,6 +27,7 @@ $(function () {
         if the distance from the top drops below zero, meaning that UFO has hit the ceiling OR
         if the distance from the top is larger than the container height without including the player height, meaning the UFO is below the container
         */
+       
         if (collision(player, obstacle) || parseInt(player.css('top')) <= 0 || parseInt(player.css('top')) > container_height - player_height) {
 
             end();
@@ -40,22 +41,20 @@ $(function () {
                 if (score_updated === false) {
                     // the score is the speed of each obstacle added together
                     score.text(parseInt(score.text()) + speed);
-                    score_updated = true;
                 }
             }
 
             //check whether the obstacle went out of the container
             if (obstacle_current_position > container_width) {
 
-                //change the obstacle's vertical position randomly withinthe height of the container
-                obstacle.css('bottom', Math.floor(Math.random() * 500) - 100);
+                //change the obstacle's vertical position randomly within the height of the container
+                obstacle.css('bottom', Math.floor(Math.random() * 500) - 50);
 
                 //increase speed randomly between integers 10 to 30
                 speed = speed + Math.floor(Math.random() * 30 + 10);
 
-                // updates the speed to the score span, resets score_updated to false so it can be updated again
+                // updates the speed to the score span
                 speed_span.text(speed);
-                score_updated = false;
 
                 //moves obstacle back to the right
                 obstacle_current_position = obstacle_initial_position;
@@ -102,7 +101,7 @@ $(function () {
 
     // end game
     function end() {
-        alert("THE UNIVERSE CAN BE A PERILOUS PLACE\n \n \t \t CLICK OK TO TRY AGAIN");
+        confirm("THE UNIVERSE CAN BE A PERILOUS PLACE\n \n \t \t CLICK OK TO TRY AGAIN");
         clearInterval();
         location.reload();
     }
@@ -167,7 +166,6 @@ $(function () {
             $('#' + pre).removeClass('cursor');
         }, Int + 1000);
     }
-
 
     backgroundWrite('earth');
     // runs playerWrite after 10 seconds
