@@ -1,9 +1,9 @@
 body {
-    height: 100%;
-    width: 100%;
-    margin: 0;
-    background: black;
-    font-family: monospace;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  background: black;
+  font-family: monospace;
 }
 
 html{
@@ -28,119 +28,112 @@ a{
 
 // game container
 #container {
-    position: relative;
-    // 5% margin on top and left
-    margin: 5vh 0 0 10vw;
-    height: 500px;
-    width: 80vw;
-    max-width: 900px;
-    border: 2px dashed;
-    overflow: hidden;
-    // using flexbox laggs the player shadow animation
-    // display: flex;
-    // justify-content: center;
-    // align-items: center;
-
-    #earth, #aurora{
-      z-index: 0;
-      position: absolute;
-      // border: solid 1px rgba( $primary, 0.5 );
-      top: 10%;
-      left: 17%;
-      display: inline-block;
-      // pre elements will not wrap
-      white-space: pre;
-      color: rgba( $primary, 0.5 );
+  position: relative;
+  margin: 50px auto;
+  height: 500px;
+  max-width: 900px;
+  border: 1.5px dashed;
+  overflow: hidden;
+  #earth, #aurora{
+    z-index: 0;
+    position: absolute;
+    // border: solid 1px rgba( $primary, 0.5 );
+    top: 10%;
+    left: 17%;
+    display: inline-block;
+    // pre elements will not wrap
+    white-space: pre;
+    color: rgba( $primary, 0.5 );
+  }
+  
+  #aurora{
+      z-index: -10;
+      color: rgba( $primary, 0.3 );
+      top: 0%;
     }
     
-    #aurora{
-        z-index: -10;
-        color: rgba( $primary, 0.3 );
-        top: 0%;
-      }
-      
-    #starry-sky{
-      color: rgba( $primary, 0.5 );
-      position: absolute;
-      bottom: 80px;
-      white-space: nowrap;
-      width: 100%;
-      overflow: hidden;
-      #sky {
-      display: inline-block;
-      animation: marquee 28s linear infinite;
-      }
-
-      #sky2 {
-      display: inline-block;
-      animation: marquee2 28s linear infinite;
-      animation-delay: 14s;
-      }
+  #starry-sky{
+    color: rgba( $primary, 0.5 );
+    position: absolute;
+    bottom: 80px;
+    white-space: nowrap;
+    width: 100%;
+    overflow: hidden;
+    #sky {
+    display: inline-block;
+    animation: marquee 28s linear infinite;
     }
 
-    #starry-sky2{
-      position: absolute;
-      bottom: 30px;
-      white-space: nowrap;
-      width: 100%;
-      overflow: hidden;
-      #sky3 {
-      display: inline-block;
-      animation: marquee 24s linear infinite;
-      }
+    #sky2 {
+    display: inline-block;
+    animation: marquee2 28s linear infinite;
+    animation-delay: 14s;
+    }
+  }
 
-      #sky4 {
-      display: inline-block;
-      animation: marquee2 24s linear infinite;
-      animation-delay: 12s;
-      }
+  #starry-sky2{
+    position: absolute;
+    bottom: 30px;
+    white-space: nowrap;
+    width: 100%;
+    overflow: hidden;
+    #sky3 {
+    display: inline-block;
+    animation: marquee 24s linear infinite;
     }
 
-    #ground{
-      position: absolute;
-      bottom: 30px;
-      white-space: nowrap;
-      width: 100%;
-      overflow: hidden;
-      #tile {
-      display: inline-block;
-      animation: marquee 20s linear infinite;
-      }
+    #sky4 {
+    display: inline-block;
+    animation: marquee2 24s linear infinite;
+    animation-delay: 12s;
+    }
+  }
 
-      #tile2 {
-      display: inline-block;
-      animation: marquee2 20s linear infinite;
-      animation-delay: 10s;
-      }
+  #ground{
+    position: absolute;
+    bottom: 30px;
+    white-space: nowrap;
+    width: 100%;
+    overflow: hidden;
+    #tile {
+    display: inline-block;
+    animation: marquee 20s linear infinite;
     }
 
-    #ground2{
-      position: absolute;
-      bottom: 10px;
-      white-space: nowrap;
-      width: 100%;
-      overflow: hidden;
-      #tile3 {
-      display: inline-block;
-      animation: marquee 16s linear infinite;
-      }
+    #tile2 {
+    display: inline-block;
+    animation: marquee2 20s linear infinite;
+    animation-delay: 10s;
+    }
+  }
 
-      #tile4 {
-      display: inline-block;
-      animation: marquee2 16s linear infinite;
-      animation-delay: 8s;
-      }
+  #ground2{
+    position: absolute;
+    bottom: 10px;
+    white-space: nowrap;
+    width: 100%;
+    overflow: hidden;
+    #tile3 {
+    display: inline-block;
+    animation: marquee 16s linear infinite;
     }
 
-    @keyframes marquee {
-      from {transform: translateX(100%);}
-      to {transform: translateX(-100%);}
+    #tile4 {
+    display: inline-block;
+    animation: marquee2 16s linear infinite;
+    animation-delay: 8s;
     }
+  }
 
-    @keyframes marquee2 {
-      from {transform: translateX(0%);}
-      to {transform: translateX(-200%);}
-    }
+  @keyframes marquee {
+    from {transform: translateX(100%);}
+    to {transform: translateX(-100%);}
+  }
+
+  @keyframes marquee2 {
+    from {transform: translateX(0%);}
+    to {transform: translateX(-200%);}
+  }
 }
 
 // controllable player, takes keyboard input up and down

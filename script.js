@@ -69,13 +69,6 @@ $(function () {
         $("#player, #obstacle").toggleClass("hitbox")
     });
 
-    // parallax marquee text
-    $('#ground').width($('#tile').width());
-
-    $('#ground2').width($('#tile3').width());
-
-    $('#starry-sky').width($('#sky').width());
-
     // 38 refers to up key, .finish() gives the UFO more dexterity and gives a teleporting effect
     $(document).on('keydown', function (i) {
         let key = i.keyCode;
