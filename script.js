@@ -27,7 +27,7 @@ $(function () {
         if the distance from the top drops below zero, meaning that UFO has hit the ceiling OR
         if the distance from the top is larger than the container height without including the player height, meaning the UFO is below the container
         */
-       
+
         if (collision(player, obstacle) || parseInt(player.css('top')) <= 0 || parseInt(player.css('top')) > container_height - player_height) {
 
             end();
@@ -65,9 +65,23 @@ $(function () {
         }
     });
 
+    // easter egg removes earth and replaces it with aurora
+    $("#easter-egg").click(function () {
+        $('#earth').fadeOut(1000, function () {
+            // call back to remove earth after it fades out
+            $(this).remove(); 
+            $("#aurora").fadeIn(1500);
+        })
+    });
+
     // toggles the hitboxes
-    $("#start").click(function () {
-        $("#player, #obstacle").toggleClass("hitbox")
+    $("#hitbox").click(function () {
+        $("#player, #obstacle").toggleClass("hitbox");
+    });
+
+    // toggles the hitboxes
+    $("#colour").click(function () {
+        $("body").toggleClass("white");
     });
 
     // 38 refers to up key, .finish() gives the UFO more dexterity and gives a teleporting effect
