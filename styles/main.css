@@ -164,6 +164,9 @@ a {
   max-width: 900px;
   border: 1.5px dashed;
   overflow: hidden; }
+  @media (max-width: 900px) {
+    #container {
+      margin: 0 auto; } }
   #container #earth, #container #aurora {
     z-index: 0;
     position: absolute;
@@ -172,6 +175,9 @@ a {
     display: inline-block;
     white-space: pre;
     opacity: 0.5; }
+    @media (max-width: 900px) {
+      #container #earth, #container #aurora {
+        left: 0; } }
   #container #aurora {
     display: none;
     z-index: 0;
@@ -321,6 +327,30 @@ a {
   text-align: left; }
   #score_div p {
     margin: 0; }
+
+#controls {
+  margin: 0;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center; }
+  #controls #button-up, #controls #button-down {
+    color: inherit;
+    border: none;
+    border-right: 1.5px dashed #00ff00;
+    border-bottom: 1.5px dashed #00ff00;
+    border-left: 1.5px dashed #00ff00;
+    background-color: black;
+    font-size: 30px;
+    width: 50%;
+    height: 100px;
+    display: none; }
+    @media (max-width: 900px) {
+      #controls #button-up, #controls #button-down {
+        display: block; } }
 
 .cursor:after {
   content: ">_";

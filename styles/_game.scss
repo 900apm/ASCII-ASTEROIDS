@@ -39,16 +39,10 @@ a{
   max-width: 900px;
   border: 1.5px dashed;
   overflow: hidden;
-    // forced landscape for mobile
-  //   @media (max-width: 900px){
-  //   transform: rotate(-90deg);
-  //   width: 100vw ;
-  //   height: 100vh ;
-  //   float: left;
-  //   margin: 0;
-  //   padding: 0;
-  //   overflow: hidden;
-  // }
+    // responsive
+    @media (max-width: 900px){
+    margin: 0 auto;
+  }
 
 
   #earth, #aurora{
@@ -61,6 +55,10 @@ a{
     // pre elements will not wrap
     white-space: pre;
     opacity: 0.5;
+    // responsive
+    @media (max-width: 900px){
+      left: 0;
+    }
   }
   
   #aurora{
@@ -214,7 +212,7 @@ a{
   opacity: 0.5;
 }
 
-// the score
+// the score and buttons
 #score_div {
     position: absolute;
     left: 1vw;
@@ -224,6 +222,28 @@ a{
     p{
       margin: 0;
     }
+}
+
+#controls {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  #button-up, #button-down{
+    color: inherit;
+    border: none;
+    border-right: 1.5px dashed $primary;
+    border-bottom: 1.5px dashed $primary;
+    border-left: 1.5px dashed $primary;
+    background-color: black;
+    font-size: 30px;
+    width: 50%;
+    height: 100px;
+    display: none;
+    @media (max-width: 900px){
+      display: block;
+    }
+  }
 }
 
 .cursor:after {

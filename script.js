@@ -15,7 +15,6 @@ $(function () {
     let obstacle_initial_position = parseInt(obstacle.css('right'));
     let player_height = parseInt(player.height());
 
-    
     // continously runs the game until clearInterval() is called
     setInterval(function() {
 
@@ -72,10 +71,24 @@ $(function () {
         $("#player, #obstacle").toggleClass("hitbox");
     });
 
-    // toggles the hitboxes
+    // toggles the colour
     $("#colour").click(function () {
         $("body").toggleClass("white");
     });
+
+    // button down moves player down
+    $("#button-down").on("click", function () {
+        $("#player").finish().animate({
+            top: "+=30px"
+        });
+    }); 
+
+    // button up moves player up
+    $("#button-up").on("click", function () {
+        $("#player").finish().animate({
+            top: "-=30px"
+        });
+    }); 
 
     // 38 refers to up key, .finish() gives the UFO more dexterity and gives a teleporting effect
     $(document).on('keydown', function (i) {
@@ -113,8 +126,7 @@ $(function () {
         location.reload();
     }
 
-    /* collision detection from 
-    https://gist.github.com/jaxxreal/7527349 */
+    // JS collision detection from https://gist.github.com/jaxxreal/7527349 
     function collision($div1, $div2) {
         //measure height and width of first div
         let x1 = $div1.offset().left;
@@ -136,7 +148,7 @@ $(function () {
         if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2) return false;
         else return true;
     }
-
+    // JS typing effect from https://codepen.io/pooley182/pen/lEKdx 
     function write(pre) {
         // add a cursor to the end of pre text that has an ID
         $('#' + pre).addClass('cursor');
