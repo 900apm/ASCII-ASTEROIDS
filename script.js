@@ -149,6 +149,7 @@ $(function () {
         else return true;
     }
 
+    
     function write(pre) {
         // add a cursor to the end of pre text that has an ID
         $('#' + pre).addClass('cursor');
