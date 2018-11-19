@@ -30,7 +30,6 @@ a{
   }
 }
 
-
 // game container
 #container {
   position: relative;
@@ -40,7 +39,7 @@ a{
   border: 1.5px dashed;
   overflow: hidden;
     // responsive
-    @media (max-width: 900px){
+    @media (max-width: 600px){
     margin: 0 auto;
   }
 
@@ -48,7 +47,6 @@ a{
   #earth, #aurora{
     z-index: 0;
     position: absolute;
-    // border: solid 1px rgba( $primary, 0.5 );
     top: 10%;
     left: 17%;
     display: inline-block;
@@ -56,7 +54,7 @@ a{
     white-space: pre;
     opacity: 0.5;
     // responsive
-    @media (max-width: 900px){
+    @media (max-width: 600px){
       left: 0;
     }
   }
@@ -213,7 +211,7 @@ a{
 }
 
 // the score and buttons
-#score_div {
+#info {
     position: absolute;
     left: 1vw;
     top: 1.5vh;
@@ -232,15 +230,16 @@ a{
   #button-up, #button-down{
     color: inherit;
     border: none;
-    border-right: 1.5px dashed $primary;
-    border-bottom: 1.5px dashed $primary;
-    border-left: 1.5px dashed $primary;
+    border-right: 1.5px dashed currentColor;
+    border-bottom: 1.5px dashed currentColor;
+    border-left: 1.5px dashed currentColor;
     background-color: black;
     font-size: 30px;
     width: 50%;
     height: 100px;
     display: none;
-    @media (max-width: 900px){
+    // responsive
+    @media (max-width: 600px){
       display: block;
     }
   }

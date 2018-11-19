@@ -12,7 +12,7 @@ $(function () {
     // float/numbers
     let container_width = parseInt(container.width());
     let container_height = parseInt(container.height());
-    let obstacle_initial_position = parseInt(obstacle.css('right'));
+    let obstacle_start_position = parseInt(obstacle.css('right'));
     let player_height = parseInt(player.height());
 
     // continously runs the game until clearInterval() is called
@@ -49,7 +49,7 @@ $(function () {
                 speed_span.text(speed);
 
                 //moves obstacle back to the right
-                obstacle_current_position = obstacle_initial_position;
+                obstacle_current_position = obstacle_start_position;
             }
 
         //increase the obstacle's speed
@@ -121,7 +121,7 @@ $(function () {
 
     // end game
     function end() {
-        confirm("THE UNIVERSE CAN BE A PERILOUS PLACE\n \n \t \t CLICK OK TO TRY AGAIN");
+        alert("THE UNIVERSE CAN BE A PERILOUS PLACE\n \n \t \t CLICK OK TO TRY AGAIN");
         clearInterval();
         location.reload();
     }
@@ -148,7 +148,7 @@ $(function () {
         if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2) return false;
         else return true;
     }
-    // JS typing effect from https://codepen.io/pooley182/pen/lEKdx 
+
     function write(pre) {
         // add a cursor to the end of pre text that has an ID
         $('#' + pre).addClass('cursor');
@@ -163,7 +163,7 @@ $(function () {
             // for each char in text, add 6 milliseconds to "Int"
             Int += 6;
             setTimeout(function (y) {
-                // add text at next character after time out in "Int"
+                // add text at next character after waiting "Int" milliseconds
                 $('#' + pre).append(text.charAt(y));
             }, Int, char);
         };
