@@ -1,7 +1,6 @@
 $(function () {
-
-    // boolean
-    let score_updated = false;
+    // intial speed, the higher the speed the faster the obstacles are
+    let speed = 100;
 
     // variables for css
     let container = $('#container');
@@ -11,22 +10,18 @@ $(function () {
     let speed_span = $('#speed');
 
     // float/numbers
-    let obstacle_initial_position = parseInt(obstacle.css('right'));
-    let obstacle_initial_height = parseInt(obstacle.css('height'));
-    let player_left = parseInt(player.css('left'));
-    let player_height = parseInt(player.height());
     let container_width = parseInt(container.width());
     let container_height = parseInt(container.height());
-    let speed = 100;
+    let obstacle_initial_position = parseInt(obstacle.css('right'));
+    let player_height = parseInt(player.height());
+
     
     // continously runs the game until clearInterval() is called
     setInterval(function() {
 
-        /* 
-        if the UFO touches an obstacle OR
+        /* if the UFO touches an obstacle OR
         if the distance from the top drops below zero, meaning that UFO has hit the ceiling OR
-        if the distance from the top is larger than the container height without including the player height, meaning the UFO is below the container
-        */
+        if the distance from the top is larger than the container height without including the player height, meaning the UFO is below the container */
 
         if (collision(player, obstacle) || parseInt(player.css('top')) <= 0 || parseInt(player.css('top')) > container_height - player_height) {
 
@@ -38,10 +33,8 @@ $(function () {
 
             //update the score when the obstacles have passed the player successfully
             if (obstacle_current_position > container_width) {
-                if (score_updated === false) {
-                    // the score is the speed of each obstacle added together
-                    score.text(parseInt(score.text()) + speed);
-                }
+                // the score is the speed of each obstacle added together
+                score.text(parseInt(score.text()) + speed);
             }
 
             //check whether the obstacle went out of the container
@@ -120,7 +113,8 @@ $(function () {
         location.reload();
     }
 
-    //collision detection
+    /* collision detection from 
+    https://gist.github.com/jaxxreal/7527349 */
     function collision($div1, $div2) {
         //measure height and width of first div
         let x1 = $div1.offset().left;
@@ -143,18 +137,23 @@ $(function () {
         else return true;
     }
 
-    function backgroundWrite(pre) {
-        // add a cursor to the end of pre text
-        $('#' + pre).addClass('cursor')
+    function write(pre) {
+        // add a cursor to the end of pre text that has an ID
+        $('#' + pre).addClass('cursor');
+        // text is the actual pre text
         let text = $('#' + pre).text();
         
         let Int = 0
-        for (var i = 0; i < text.length; i++) {
-            // this is the indentation speed
+
+        /* starting at 0, loop through the length of the text 
+        add 1 on each character so that "char" will equal to the length of the text */
+        for (let char = 0; char < text.length; char++) {
+            // for each char in text, add 6 milliseconds to "Int"
             Int += 6;
             setTimeout(function (y) {
+                // add text at next character after time out in "Int"
                 $('#' + pre).append(text.charAt(y));
-            }, Int, i);
+            }, Int, char);
         };
         // removes cursor after timeout
         setTimeout(function () {
@@ -162,27 +161,7 @@ $(function () {
         }, Int + 1000);
     }
 
-    function playerWrite(pre) {
-        // add a cursor to the end of pre text
-        $('#' + pre).addClass('cursor')
-        var text = $('#' + pre).text();
-        
-        var Int = 0
-        for (var i = 0; i < text.length; i++) {
-            // this is the indentation speed
-            Int += 50;
-            setTimeout(function (y) {
-                $('#' + pre).append(text.charAt(y));
-            }, Int, i);
-        };
-        // removes cursor after timeout
-        setTimeout(function () {
-            $('#' + pre).removeClass('cursor');
-        }, Int + 1000);
-    }
-
-    backgroundWrite('earth');
+    write('earth');
     // runs playerWrite after 10 seconds
-    setTimeout(function () { playerWrite('player'); }, 9000);
-    
+    setTimeout(function () { write('player'); }, 9000);
     });
