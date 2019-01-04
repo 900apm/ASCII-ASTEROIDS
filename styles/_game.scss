@@ -55,7 +55,7 @@ a{
     opacity: 0.5;
     // responsive
     @media (max-width: 600px){
-      left: 0;
+      left: calc(100% / 2 - (550px / 2));
     }
   }
   

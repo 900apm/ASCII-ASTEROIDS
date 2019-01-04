@@ -10,7 +10,9 @@ $(function () {
     let speed_span = $('#speed');
 
     // float/numbers
-    let container_width = parseInt(container.width());
+    // let container_width = parseInt(container.width());
+    // container_width updated to 900px, which is the max width of the container, this is so that on resize from mobile to desktop the asteroids will reach all the way to the left
+    let container_width = 900;
     let container_height = parseInt(container.height());
     let obstacle_start_position = parseInt(obstacle.css('right'));
     let player_height = parseInt(player.height());
