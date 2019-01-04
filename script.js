@@ -121,9 +121,19 @@ $(function () {
         }
     });
 
+    let alertHtml = (
+        '<div class="alert">' +
+            '<p>THE UNIVERSE CAN BE A PERILOUS PLACE. CLICK OK TO TRY AGAIN</p>'+
+            '<button class="restart">OK</button>'+
+        '</div>'
+    );
+
     // end game
     function end() {
-        alert("THE UNIVERSE CAN BE A PERILOUS PLACE\n \n \t \t CLICK OK TO TRY AGAIN");
+        // alert("THE UNIVERSE CAN BE A PERILOUS PLACE\n \n \t \t CLICK OK TO TRY AGAIN");
+       
+        // $("#container").append(alertHtml);
+        
         clearInterval();
         location.reload();
     }
