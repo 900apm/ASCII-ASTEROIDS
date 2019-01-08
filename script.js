@@ -1,12 +1,13 @@
 $(function () {
     // intial speed, the higher the speed the faster the obstacles are
     let speed = 100;
+    let score = 0;
 
     // variables for css
     let container = $('#container');
     let player = $('#player');
     let obstacle = $('#obstacle');
-    let score = $('.score');
+    let score_span = $('.score');
     let speed_span = $('.speed');
 
     // float/numbers
@@ -32,23 +33,21 @@ $(function () {
             
             let obstacle_current_position = parseInt(obstacle.css('right'));
 
-            //update the score when the obstacles have passed the player successfully
-            if (obstacle_current_position > container_width) {
-                // the score is the speed of each obstacle added together
-                score.text(parseInt(score.text()) + speed);
-            }
-
-            //check whether the obstacle went out of the container
+            //check whether the obstacle went out of the container and passed the player successfully
             if (obstacle_current_position > container_width) {
 
                 //change the obstacle's vertical position randomly within the height of the container
                 obstacle.css('bottom', Math.floor(Math.random() * 500) - 50);
 
+                // score is equal to previous score plus current obstacle speed
+                score = score + speed
+
                 //increase speed randomly between integers 10 to 30
                 speed = speed + Math.floor(Math.random() * 30 + 10);
 
-                // updates the speed to the score span
+                // updates the speed and score
                 speed_span.text(speed);
+                score_span.text(score);
 
                 //moves obstacle back to the right
                 obstacle_current_position = obstacle_start_position;
@@ -124,10 +123,10 @@ $(function () {
     // end game
     function end() {
         $(".restart").fadeIn();
+        clearInterval();
     }
 
     $(document).on("click", ".restart", function () { 
-        clearInterval();
         location.reload();
     })
 
