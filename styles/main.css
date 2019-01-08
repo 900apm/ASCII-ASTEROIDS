@@ -347,7 +347,7 @@ a {
     background-color: black;
     font-size: 30px;
     width: 50%;
-    height: 100px;
+    height: 20vh;
     display: none; }
     @media (max-width: 600px) {
       #controls #button-up, #controls #button-down {
