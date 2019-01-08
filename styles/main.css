@@ -167,7 +167,7 @@ a {
   @media (max-width: 600px) {
     #container {
       margin: 0 auto;
-      height: 70vh; } }
+      height: 80vh; } }
   #container #earth, #container #aurora {
     z-index: 0;
     position: absolute;
