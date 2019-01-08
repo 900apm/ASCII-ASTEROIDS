@@ -123,7 +123,7 @@ $(function () {
 
     // end game
     function end() {
-        $(".restart").show();
+        $(".restart").fadeIn();
     }
 
     $(document).on("click", ".restart", function () { 
