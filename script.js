@@ -6,8 +6,8 @@ $(function () {
     let container = $('#container');
     let player = $('#player');
     let obstacle = $('#obstacle');
-    let score = $('#score');
-    let speed_span = $('#speed');
+    let score = $('.score');
+    let speed_span = $('.speed');
 
     // float/numbers
     // let container_width = parseInt(container.width());
@@ -121,22 +121,15 @@ $(function () {
         }
     });
 
-    let alertHtml = (
-        '<div class="alert">' +
-            '<p>THE UNIVERSE CAN BE A PERILOUS PLACE. CLICK OK TO TRY AGAIN</p>'+
-            '<button class="restart">OK</button>'+
-        '</div>'
-    );
-
     // end game
     function end() {
-        // alert("THE UNIVERSE CAN BE A PERILOUS PLACE\n \n \t \t CLICK OK TO TRY AGAIN");
-       
-        // $("#container").append(alertHtml);
-        
+        $(".restart").show();
+    }
+
+    $(document).on("click", ".restart", function () { 
         clearInterval();
         location.reload();
-    }
+    })
 
     // JS collision detection from https://gist.github.com/jaxxreal/7527349 
     function collision($div1, $div2) {
