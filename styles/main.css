@@ -164,7 +164,7 @@ a {
   max-width: 900px;
   border: 1.5px dashed;
   overflow: hidden; }
-  @media (max-width: 600px) {
+  @media (max-width: 500px) {
     #container {
       margin: 0 auto;
       height: 80vh; } }
@@ -175,10 +175,11 @@ a {
     left: 17%;
     display: inline-block;
     white-space: pre;
-    opacity: 0.5; }
-    @media (max-width: 600px) {
+    opacity: 0.5;
+    left: calc(100% / 2 - (550px / 2)); }
+    @media (max-width: 500px) {
       #container #earth, #container #aurora {
-        left: calc(100% / 2 - (550px / 2)); } }
+        top: 5%; } }
   #container #aurora {
     display: none;
     z-index: 0;
@@ -349,7 +350,7 @@ a {
     width: 50%;
     height: 20vh;
     display: none; }
-    @media (max-width: 600px) {
+    @media (max-width: 500px) {
       #controls #button-up, #controls #button-down {
         display: block; } }
 

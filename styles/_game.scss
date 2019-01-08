@@ -38,7 +38,7 @@ a{
   border: 1.5px dashed;
   overflow: hidden;
     // responsive
-    @media (max-width: 600px){
+    @media (max-width: 500px){
     margin: 0 auto;
     height: 80vh;
   }
@@ -52,9 +52,10 @@ a{
     // pre elements will not wrap
     white-space: pre;
     opacity: 0.5;
+    left: calc(100% / 2 - (550px / 2));
     // responsive
-    @media (max-width: 600px){
-      left: calc(100% / 2 - (550px / 2));
+    @media (max-width: 500px){
+      top: 5%;
     }
   }
   
@@ -238,7 +239,7 @@ a{
     height: 20vh;
     display: none;
     // responsive
-    @media (max-width: 600px){
+    @media (max-width: 500px){
       display: block;
     }
   }
