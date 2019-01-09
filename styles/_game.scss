@@ -260,13 +260,13 @@ a{
   position: absolute;
   width: 100%; 
   height: 100%;
-  top: 0;
-  bottom: 0;
   text-align: center;
   font-size: 1.6rem;
   background-color: black;
   color: currentColor;
-  padding: 9rem 4rem;
   z-index: 100;
   border: none;
+  p{
+    text-align: center;
+  }
 }

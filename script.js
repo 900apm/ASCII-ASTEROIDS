@@ -122,6 +122,7 @@ $(function () {
 
     // end game
     function end() {
+        speed = 0;
         $(".restart").fadeIn();
         clearInterval();
     }
