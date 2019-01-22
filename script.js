@@ -81,14 +81,20 @@ $(function () {
     $("#button-down").on("click", function () {
         $("#player").finish().animate({
             top: "+=30px"
-        });
+        }).addClass("shadow-up").removeClass("shadow-down");
+        setTimeout(function () {
+            $("#player").removeClass("shadow-up");
+        }, 200);
     }); 
 
     // button up moves player up
     $("#button-up").on("click", function () {
         $("#player").finish().animate({
             top: "-=30px"
-        });
+        }).addClass("shadow-down").removeClass("shadow-up");
+        setTimeout(function () {
+            $("#player").removeClass("shadow-down");
+        }, 200);
     }); 
 
     // 38 refers to up key, .finish() gives the UFO more dexterity and gives a teleporting effect
