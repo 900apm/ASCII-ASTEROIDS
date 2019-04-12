@@ -189,3 +189,16 @@ $(function () {
     // runs playerWrite after 10 seconds
     setTimeout(function () { write('player'); }, 9000);
     });
+
+const blob = document.createElement('pre');
+const _blob = {
+    'body': ["▖", "▌", "▘", "▀", "▝", "▐", "▗", "▄"],
+    'tail': ["—__—", "--__", "‾——_", "‾‾--", "—‾‾—", "——‾‾", "_——‾", "__——"]
+}
+let i = 0;
+window.setInterval(() => {
+    i = (i >= _blob.body.length) ? 0 : i;
+    blob.innerHTML = `${_blob.body[i]} ${_blob.tail[i]}`;
+    i++;
+}, 60);
+document.getElementById("obstacle").appendChild(blob);
