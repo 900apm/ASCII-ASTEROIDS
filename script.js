@@ -13,7 +13,7 @@ $(function () {
     // float/numbers
     // let container_width = parseInt(container.width());
     // container_width updated to 900px, which is the max width of the container, this is so that on resize from mobile to desktop the asteroids will reach all the way to the left
-    let container_width = 900;
+    let container_width = 800;
     let container_height = parseInt(container.height());
     let obstacle_start_position = parseInt(obstacle.css('right'));
     let player_height = parseInt(player.height());
@@ -37,7 +37,7 @@ $(function () {
             if (obstacle_current_position > container_width) {
 
                 //change the obstacle's vertical position randomly within the height of the container
-                obstacle.css('bottom', Math.floor(Math.random() * 500) - 50);
+                obstacle.css('bottom', Math.floor(Math.random() * 450) - 50);
 
                 // score is equal to previous score plus current obstacle speed
                 score = score + speed

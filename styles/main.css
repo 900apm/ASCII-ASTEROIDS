@@ -159,9 +159,9 @@ a {
 
 #container {
   position: relative;
-  margin: 50px auto;
-  height: 500px;
-  max-width: 900px;
+  margin: 20px auto;
+  height: 450px;
+  max-width: 800px;
   border: 1.5px dashed;
   overflow: hidden; }
   @media (max-width: 500px) {
