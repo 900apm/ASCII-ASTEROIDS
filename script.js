@@ -190,9 +190,9 @@ $(function () {
     setTimeout(function () { write('player'); }, 9000);
     });
 
-const blob = document.createElement('pre');
-const _blob = {
-    'body': ["▖", "▌", "▘", "▀", "▝", "▐", "▗", "▄"],
+let blob = document.createElement('pre');
+let _blob = {
+    'body': ["▄", "▖", "▌", "▀", "▝", "▀", "▌", "▖"],
     'tail': ["—__—", "--__", "‾——_", "‾‾--", "—‾‾—", "——‾‾", "_——‾", "__——"]
 }
 let i = 0;
